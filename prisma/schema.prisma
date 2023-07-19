@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model players {
+  id       Int    @id @default(autoincrement())
+  name     String @unique(map: "Players_name_key") @db.VarChar(35)
+  age      Int
+  cpf      String @unique(map: "Players_cpf_key") @db.VarChar(11)
+  position String @db.VarChar(50)
+  password String @db.VarChar(200)
+}
+
+model selections {
+  id         Int      @id @default(autoincrement())
+  name       String   @unique(map: "Selections_name_key") @db.VarChar(50)
+  titles     Int
+  top_scorer String   @db.VarChar(25)
+  fifa_code  String   @unique(map: "Selections_fifa_code_key") @db.VarChar(5)
+  first_cup  DateTime @db.Date
+}
+
+model trainers {
+  id       Int    @id @default(autoincrement())
+  name     String @unique(map: "Trainers_name_key") @db.VarChar(35)
+  age      Int
+  cpf      String @unique(map: "Trainers_cpf_key") @db.VarChar(11)
+  password String @db.VarChar(200)
+}
