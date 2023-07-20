@@ -6,7 +6,7 @@ import {SelectionModule} from './selection/selection.module';
 import {TrainerModule} from './trainer/trainer.module';
 
 @Module({
-  imports: [SelectionModule],
+  imports: [SelectionModule, TrainerModule],
   controllers: [AppController],
   providers: [AppService],
 })
