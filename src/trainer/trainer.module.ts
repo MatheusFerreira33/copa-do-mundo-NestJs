@@ -8,7 +8,7 @@ import {checkDatasExist} from '../middlewares/trainer/trainer.middlewares';
     imports:[PrismaModule],
     controllers:[TrainerController],
     providers:[TrainerService],
-    exports:[]
+    exports:[TrainerService]
 })
 export class TrainerModule implements NestModule{
 
